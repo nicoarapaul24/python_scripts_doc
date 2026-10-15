@@ -1,0 +1,97 @@
+Documentation for Make Error Shape
+
+Date: 18.10.18
+
+Software version 1.0
+
+
+This documentation is in text format and does not contain any images. For images please see the ".doc" Documentation that can be found in the installation folder.
+
+A. Software elements:
+
+Text field - each of the fields that are placed on the left side of the software coloured in white at the beginning of the program and where text can be inserted by user or will be displayed by the program depending on the function performed.
+Buttons - each of the colored elements, that allow you to perform a function.
+Help - the menu that allows the user to access Documentation and About section.
+
+Open CSV File button - new dialog box asking for the file path, situated to the left of the CSV file path. The CSV file path cannot be entered manually.
+
+Shapefile name - text field that is optional. Can be used to input the desired shapefile output name.
+
+Zoom factor -  the numerical value you want the distance between points to be zoomed.
+
+Run program - click it to Run the program perform the shapefile creation.
+
+Reset - resets the program to become available for new input (as you see it when you open the program).
+
+B. Software text field colours meaning:
+
+White - text field is available to receive information.
+Grey - text field received information, it is now disabled to prevent accidental editing (only for CSV file path).
+Green - the information in the text field has been checked during execution (after Run program has been pressed) and input data is correct.
+Red - no or incorrect data in text field.
+
+1. Help Menu
+
+By clicking the Help button user will see a list with 3 options: User manual, About and Exit.
+By pressing the User manual button user will see a new window with the text of the current documentation file, without the images.
+
+By pressing the About button user sees the information regarding the current program (version, creators, license).
+
+The user has the option to close the program by pressing Exit button or the X button at the top-right of the screen.
+
+2. Selecting CSV input file
+
+The program allows you to select one CSV file, containing the point information, by pressing the Open CSV File button.
+
+You can browse through your computer's files in the new dialog window that is opened until you find the CSV File to import. Once you find it please select it and then press Open. 
+
+After you press Open the software will enter the full file path in the corresponding text box, to the left of the Open CSV File button and will colour the text box in grey, as well as disable the text box so that you can no longer edit the text inside the text box, to prevent accidental editing. 
+
+It is not possible to select a different file type other than .csv.
+
+You can open a different file, after you have already selected a file, by pressing the Open CSV File button again. This will have the effect of deleting the previous file path and inputting the file path for the newly opened CSV file in the left hand side text box.
+If you press Cancel in the pop-up window, the software will colour the left hand box in red and provide you with an error code in the bottom text box, to let you know no CSV file has been selected. You can then proceed to open a new CSV file.
+
+During program execution the text field corresponding to the CSV file path will be checked for errors. If any error is found the program will not be executed and an error message will be displayed, suggesting what you need to change.
+
+3. Shapefile name (optional)
+
+Simple input text field name where user can insert the desired name of the new shapefile. 
+
+If left empty, the program will assign an automated name. The automated name is written in the following format [csvfilename]_x[zoomfactor].shp, where [csvfilename] is the name of the CSV file used as input, without the ".csv" extension and [zoomfactor] is the chosen zoom factor.
+
+Shapefile name must not have any space and must not begin with a number!
+You do not need to insert ".shp" in the name.  Output shapefile name cannot contain special characters like:  ` @ / \ : * ?  " < > | , . (point). 
+
+This field will always be editable, even after you pressed Run Program. This will allow you to create a new shapefile from the same CSV data, for example when choosing a different zoom factor or different output file name.
+
+During program execution (after pressing Run Program) this field will be checked for the errors mentioned above. If any error is found the program will not be executed and an error message will be displayed, suggesting what you need to change.
+
+4. Zoom factor
+
+Insert desired zoom value by keyboard. The value can only be positive numbers (no decimals, negative numbers or text allowed). 
+
+This field will always be editable, even after you pressed Run Program. This will allow you to create a new shapefile from the same data, if you choose to do so, for example when choosing a different zoom factor or different output file name.
+
+
+During program execution this field will be checked for errors. If any error is found the program will not be executed and an error message will be displayed, suggesting what you need to change.
+
+5. Reset
+You can reset the program at any time by pressing the Reset button. This will enable all of the features that have been disabled previously, therefore text fields will be available for editing or for file/folder selection.
+
+6. Run program
+
+By pressing the Run program button the main function of the program is executed. This means that all the input data will be verified for errors, the input CSV file will be opened, data will be selected and then exported in a shapefile file. All this will happen in the background. 
+
+The file will take the rows that have all the values different to NULL. If the file finds any row that contains NULL data in any of the fields, it will not output that row as a shapefile line and will inform the user of the row ID, from the Point column.
+
+The program will create the new shapefile in the same folder as the CSV file that is the source of the data. There is no option to select a different folder, in the current version of the program.
+
+
+The program takes the name given by the user and makes the shapefile with the name [Shapefile Name]_x[Zoom Factor], where [Shapefile Name] is the name given by the user, [Zoom Factor] is the factor inserted by the user.
+
+If the shapefile name already exists at the same path the program will ask you to either erase the current file from disk or give a different name or zoom factor, then press the Run Program button again.
+
+When the shapefile has successfully been created a message will appear and all the text fields will be colored in green.
+
+The Shapefile name and Zoom factor fields will be editable after the program has run successfully allowing you to create a new shapefile with different zoom factor or name, for the same input file. You can also select a different CSV file and a new output folder.
